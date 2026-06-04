@@ -1,27 +1,193 @@
-.cards > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+.cards-slider-wrapper {
+  position: relative;
 }
 
-.cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+.cards>.cards-slider-wrapper>ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 16px 0;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 24px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.cards>.cards-slider-wrapper>ul::-webkit-scrollbar {
+  display: none;
+}
+
+/* Prevent text selection and image drag while swiping */
+.cards>.cards-slider-wrapper>ul.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.cards>.cards-slider-wrapper>ul.is-dragging * {
+  pointer-events: none;
+  user-select: none;
+}
+
+.cards>.cards-slider-wrapper>ul>li {
+  /* Show ~3.5 cards across to encourage scrolling */
+  flex: 0 0 calc(28% - 18px);
+  scroll-snap-align: start;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin: 16px 0 0 0;
 }
 
 .cards .cards-card-image {
   line-height: 0;
+  overflow: hidden;
 }
 
-.cards > ul > li img {
+.cards>.cards-slider-wrapper>ul>li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cards>.cards-slider-wrapper>ul>li:hover img {
+  transform: scale(1.05);
+}
+
+/* Target the first element (title) in the body */
+.cards .cards-card-body>*:first-child {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+/* Add the arrow to the title */
+.cards .cards-card-body>*:first-child::after {
+  content: '→';
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+  font-weight: normal;
+}
+
+.cards>.cards-slider-wrapper>ul>li:hover .cards-card-body>*:first-child::after {
+  transform: translateX(4px);
+}
+
+/* Target the description text */
+.cards .cards-card-body>p:not(:first-child) {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --- Slider Navigation Buttons --- */
+.cards-slider-btn {
+  position: absolute;
+  top: calc(50% - 60px);
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  font-size: 20px;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.cards-slider-btn:hover {
+  background: #f7f7f7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.cards-slider-btn:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cards-slider-prev {
+  left: -24px;
+}
+
+.cards-slider-next {
+  right: -24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .cards>.cards-slider-wrapper>ul>li {
+    flex: 0 0 calc(45% - 12px);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards>.cards-slider-wrapper>ul>li {
+    flex: 0 0 calc(85% - 24px);
+    /* Show 1 card fully, peeking the next one */
+  }
+}
+
+/* --- Category Cards Variant --- */
+/* Used when authoring "Cards (Category)" */
+.cards.category>.cards-slider-wrapper>ul>li {
+  flex: 0 0 140px;
+  /* Fixed width so they stay consistent even when the container bleeds */
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  padding: 24px 16px 16px 16px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.cards.category>.cards-slider-wrapper>ul>li:hover {
+  background-color: #efefef;
+}
+
+.cards.category>.cards-slider-wrapper>ul>li img {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* No image scale hover effect for categories */
+.cards.category>.cards-slider-wrapper>ul>li:hover img {
+  transform: none;
+}
+
+.cards.category .cards-card-body {
+  margin: 16px 0 0 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.cards.category .cards-card-body>*:first-child {
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0;
+  justify-content: center;
+}
+
+/* Remove the arrow indicator from the title for category cards */
+.cards.category .cards-card-body>*:first-child::after {
+  content: none;
 }

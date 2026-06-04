@@ -1,20 +1,143 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: #f7f7f7;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  color: #333;
 }
 
 footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
-}
-
-footer .footer p {
-  margin: 0;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 40px 32px;
+  }
+}
+
+
+
+footer .footer > div:last-child {
+  border-bottom: none;
+}
+
+/* --- Row 1: Links Section --- */
+.footer-links-section .columns {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.footer-column h3 {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #ff6a00; /* Wooden Street primary color accent */
+}
+
+.footer-column img {
+  max-height: 30px;
+  margin-right: 10px;
+}
+
+/* --- Row 2: Badges Section --- */
+.footer-badges-section .columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-badges-section p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-badges-section img {
+  max-height: 40px;
+}
+
+/* --- Row 3: Legal Section --- */
+.footer-legal-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.footer-legal-section .default-content-wrapper {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.footer-legal-section img {
+  max-height: 40px;
+}
+
+.footer-legal-section ul {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.footer-legal-section ul li a {
+  color: #666;
+  text-decoration: none;
+}
+
+.footer-legal-section ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .footer-links-section .columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-badges-section .columns {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-legal-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-links-section .columns {
+    grid-template-columns: 1fr;
   }
 }

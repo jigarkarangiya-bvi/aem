@@ -16,5 +16,19 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
+  // Add structural classes to match the 3-row footer design
+  const sections = footer.querySelectorAll(':scope > div');
+  if (sections.length > 0) {
+    sections[0].classList.add('footer-links-section');
+    const linkColumns = sections[0].querySelectorAll('.columns > div');
+    linkColumns.forEach((col) => col.classList.add('footer-column'));
+  }
+  if (sections.length > 1) {
+    sections[1].classList.add('footer-badges-section');
+  }
+  if (sections.length > 2) {
+    sections[2].classList.add('footer-legal-section');
+  }
+
   block.append(footer);
 }
