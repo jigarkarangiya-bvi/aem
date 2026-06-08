@@ -22,7 +22,7 @@ export default async function decorate(block) {
     sections[0].classList.add('footer-links-section');
     const linkColumns = sections[0].querySelectorAll('.columns > div > div');
     linkColumns.forEach((col) => col.classList.add('footer-column'));
-    
+
     if (linkColumns.length >= 5) {
       linkColumns[4].classList.add('footer-contact-box');
     }

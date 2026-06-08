@@ -20,6 +20,7 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+
   /* Hide scrollbar for a cleaner look */
   scrollbar-width: none; 
 }
@@ -34,7 +35,7 @@
   aspect-ratio: 1 / 1;
 }
 
-@media (min-width: 600px) {
+@media (width >= 600px) {
   .brand-list-item {
     flex: 0 0 calc(33.333% - 16px);
   }
@@ -48,12 +49,13 @@
   text-align: center;
 }
 
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .brand-list-container {
     justify-content: center;
     overflow-x: visible;
     gap: 24px;
   }
+
   .brand-list-item {
     flex: 0 1 140px; /* Force max size but allow shrinking */
     max-width: 140px;

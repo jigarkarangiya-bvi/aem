@@ -13,7 +13,7 @@ export default function decorate(block) {
     ul.append(li);
   });
   ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
-  
+
   // Slider setup
   const sliderWrapper = document.createElement('div');
   sliderWrapper.className = 'cards-slider-wrapper';
@@ -54,7 +54,7 @@ export default function decorate(block) {
   };
 
   ul.addEventListener('scroll', toggleButtons, { passive: true });
-  
+
   // Drag to scroll logic for desktop
   let isDown = false;
   let startX;

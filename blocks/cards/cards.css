@@ -5,7 +5,7 @@
 .cards>.cards-slider-wrapper>ul {
   list-style: none;
   margin: 0;
-  padding: 0 0 16px 0;
+  padding: 0 0 16px;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -42,7 +42,7 @@
 }
 
 .cards .cards-card-body {
-  margin: 16px 0 0 0;
+  margin: 16px 0 0;
 }
 
 .cards .cards-card-image {
@@ -65,7 +65,7 @@
 .cards .cards-card-body>*:first-child {
   font-size: 18px;
   font-weight: 500;
-  margin: 0 0 8px 0;
+  margin: 0 0 8px;
   color: #333;
   display: flex;
   align-items: center;
@@ -104,7 +104,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
   z-index: 2;
   font-size: 20px;
   color: #333;
@@ -113,7 +113,7 @@
 
 .cards-slider-btn:hover {
   background: #f7f7f7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 25%);
 }
 
 .cards-slider-btn:disabled {
@@ -130,27 +130,30 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   .cards>.cards-slider-wrapper>ul>li {
     flex: 0 0 calc(45% - 12px);
   }
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .cards>.cards-slider-wrapper>ul>li {
     flex: 0 0 calc(85% - 24px);
+
     /* Show 1 card fully, peeking the next one */
   }
 }
 
 /* --- Category Cards Variant --- */
+
 /* Used when authoring "Cards (Category)" */
 .cards.category>.cards-slider-wrapper>ul>li {
   flex: 0 0 140px;
+
   /* Fixed width so they stay consistent even when the container bleeds */
   background-color: #f7f7f7;
   border-radius: 8px;
-  padding: 24px 16px 16px 16px;
+  padding: 24px 16px 16px;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -159,7 +162,7 @@
 
 .cards.category>.cards-slider-wrapper>ul>li:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 16px rgb(0 0 0 / 8%);
 }
 
 .cards.category>.cards-slider-wrapper>ul>li img {
@@ -175,7 +178,7 @@
 }
 
 .cards.category .cards-card-body {
-  margin: 16px 0 0 0;
+  margin: 16px 0 0;
   display: flex;
   justify-content: center;
   width: 100%;

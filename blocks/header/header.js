@@ -129,7 +129,7 @@ export default async function decorate(block) {
 
   const nav = document.createElement('nav');
   nav.id = 'nav';
-  
+
   // Clean up any empty sections left behind (e.g. from moving announcements)
   Array.from(fragment.children).forEach((section) => {
     if (section.textContent.trim() === '' && !section.querySelector('img')) {

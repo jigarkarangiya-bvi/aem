@@ -12,7 +12,7 @@ export default function decorate(block) {
   const content = block.querySelector(':scope > div > div');
   if (content) {
     content.classList.add('hero-v1-content');
-    
+
     // Clean up empty paragraphs
     content.querySelectorAll('p').forEach((p) => {
       if (p.innerHTML.trim() === '') p.remove();
@@ -34,7 +34,7 @@ export default function decorate(block) {
         } else if (!content.querySelector('.hero-v1-subtitle')) {
           p.className = 'hero-v1-subtitle';
         } else {
-           p.className = 'hero-v1-desc';
+          p.className = 'hero-v1-desc';
         }
       }
     });

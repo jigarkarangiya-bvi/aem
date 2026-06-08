@@ -2,7 +2,7 @@ footer {
   background-color: #F8F8F8;
   font-family: var(--body-font-family, sans-serif);
   font-size: 13px;
-  color: var(--text-color, #333333);
+  color: var(--text-color, #333);
 }
 
 footer .footer>div {
@@ -11,7 +11,7 @@ footer .footer>div {
   padding: 40px 24px;
 }
 
-@media (min-width: 900px) {
+@media (width >= 900px) {
   footer .footer>div {
     padding: 60px 40px;
   }
@@ -28,6 +28,7 @@ footer .footer>div {
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
   padding-top: 48px;
+
   /* Space for the logo */
 }
 
@@ -37,6 +38,7 @@ footer .footer>div {
 
 .footer-column p br {
   display: none;
+
   /* Block elements handle spacing, remove br gaps */
 }
 
@@ -59,13 +61,13 @@ footer .footer>div {
   width: auto;
 }
 
-@media (max-width: 1100px) {
+@media (width <= 1100px) {
   .footer-links-section .columns>div {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .footer-links-section .columns>div {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -103,84 +105,6 @@ footer .footer>div {
   color: #000;
 }
 
-/* --- Contact Box --- */
-.footer-contact-box {
-  background: transparent;
-}
-
-.footer-contact-box>p:first-child strong {
-  text-transform: none;
-  letter-spacing: normal;
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.footer-contact-box>p:nth-child(2) {
-  color: #666;
-  font-size: 12px;
-  margin-bottom: 24px;
-}
-
-/* Format the contact box links */
-.footer-contact-box p:has(a) {
-  margin: 0;
-}
-
-.footer-contact-box a {
-  display: flex;
-  align-items: center;
-  padding: 16px 20px;
-  border: 1px solid #e0e0e0;
-  border-bottom: none;
-  background-color: #fff;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  position: relative;
-  text-decoration: none;
-  color: #666;
-}
-
-.footer-contact-box p:has(a):last-child a {
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.footer-contact-box a:hover {
-  background-color: #fafafa;
-}
-
-/* Add the > chevron using a pseudo element */
-.footer-contact-box a::after {
-  content: '';
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg);
-  width: 6px;
-  height: 6px;
-  border-top: 1px solid #666;
-  border-right: 1px solid #666;
-  transition: transform 0.2s ease;
-}
-
-.footer-contact-box a:hover::after {
-  transform: translateY(-50%) rotate(45deg) scale(1.1);
-  border-color: #000;
-}
-
-.footer-contact-box a img {
-  width: 24px;
-  height: 24px;
-  margin-right: 16px;
-  opacity: 0.7;
-}
-
-.footer-contact-box a strong {
-  display: block;
-  font-size: 12px;
-  margin: 0 0 2px 0;
-  letter-spacing: normal;
-  text-transform: none;
-  color: #000;
-}
 
 /* --- Row 2: Legal Section --- */
 .footer-legal-section {
@@ -208,16 +132,17 @@ footer .footer>div {
 
 .footer-legal-section p:last-child {
   gap: 16px;
+
   /* Social icons gap */
 }
 
-.footer-legal-section a {
+.footer-legal-section p a {
   color: #666;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.footer-legal-section a:hover {
+.footer-legal-section p a:hover {
   color: #000;
 }
 
@@ -233,7 +158,7 @@ footer .footer>div {
   opacity: 1;
 }
 
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .footer-legal-section .default-content-wrapper {
     flex-direction: column;
     justify-content: center;
