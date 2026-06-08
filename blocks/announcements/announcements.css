@@ -1,0 +1,72 @@
+/* Announcements Wrapper - Added by header.js */
+.announcements-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  overflow: hidden;
+}
+
+/* Base block styles */
+.announcements {
+  position: relative;
+  width: 100%;
+  min-height: 28px; /* Minimum height to prevent layout shifts */
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for all items */
+.announcements.announcements-container {
+  display: block;
+}
+
+.announcements .announcement-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 24px;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  z-index: 1;
+}
+
+.announcements .announcement-item.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.announcements .announcement-text {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.announcements .announcement-text p,
+.announcements .announcement-text h1,
+.announcements .announcement-text h2,
+.announcements .announcement-text h3,
+.announcements .announcement-text h4,
+.announcements .announcement-text h5,
+.announcements .announcement-text h6 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.announcements .announcement-text a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.announcements .announcement-text a:hover {
+  text-decoration: none;
+}

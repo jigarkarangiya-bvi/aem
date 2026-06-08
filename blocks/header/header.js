@@ -120,8 +120,23 @@ export default async function decorate(block) {
 
   // decorate nav DOM
   block.textContent = '';
+  const announcements = fragment.querySelector('.announcements');
+  const announcementsWrapper = document.createElement('div');
+  if (announcements) {
+    announcementsWrapper.className = 'announcements-wrapper';
+    announcementsWrapper.append(announcements);
+  }
+
   const nav = document.createElement('nav');
   nav.id = 'nav';
+  
+  // Clean up any empty sections left behind (e.g. from moving announcements)
+  Array.from(fragment.children).forEach((section) => {
+    if (section.textContent.trim() === '' && !section.querySelector('img')) {
+      section.remove();
+    }
+  });
+
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
   const classes = ['brand', 'sections', 'tools'];
@@ -131,10 +146,11 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
+  const brandLink = navBrand ? navBrand.querySelector('.button') : null;
   if (brandLink) {
     brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+    const btnContainer = brandLink.closest('.button-container');
+    if (btnContainer) btnContainer.className = '';
   }
 
   const navSections = nav.querySelector('.nav-sections');
@@ -167,5 +183,8 @@ export default async function decorate(block) {
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
+  if (announcementsWrapper.hasChildNodes()) {
+    block.append(announcementsWrapper);
+  }
   block.append(navWrapper);
 }

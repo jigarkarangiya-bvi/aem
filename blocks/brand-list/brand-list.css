@@ -1,0 +1,81 @@
+/* Force the section to stack vertically in case it accidentally inherited a flex layout */
+.section:has(.brand-list),
+.footer-legal-section:has(.brand-list) {
+  display: block !important;
+}
+
+.brand-list {
+  padding: 24px 0;
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.brand-list-container {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar for a cleaner look */
+  scrollbar-width: none; 
+}
+
+.brand-list-container::-webkit-scrollbar {
+  display: none;
+}
+
+.brand-list-item {
+  flex: 0 0 calc(50% - 16px);
+  scroll-snap-align: start;
+  aspect-ratio: 1 / 1;
+}
+
+@media (min-width: 600px) {
+  .brand-list-item {
+    flex: 0 0 calc(33.333% - 16px);
+  }
+}
+
+/* Center all the text in the section (Title and Disclaimer) */
+.section:has(.brand-list) h1,
+.section:has(.brand-list) h2,
+.section:has(.brand-list) h3,
+.section:has(.brand-list) p {
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .brand-list-container {
+    justify-content: center;
+    overflow-x: visible;
+    gap: 24px;
+  }
+  .brand-list-item {
+    flex: 0 1 140px; /* Force max size but allow shrinking */
+    max-width: 140px;
+  }
+}
+
+.brand-list-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.brand-list-link:hover {
+  transform: translateY(-4px);
+  opacity: 0.9;
+}
+
+.brand-list-item picture,
+.brand-list-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

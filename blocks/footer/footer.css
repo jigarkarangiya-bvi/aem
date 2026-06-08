@@ -1,143 +1,246 @@
 footer {
-  background-color: #f7f7f7;
-  font-family: var(--body-font-family);
-  font-size: 14px;
-  color: #333;
+  background-color: #F8F8F8;
+  font-family: var(--body-font-family, sans-serif);
+  font-size: 13px;
+  color: var(--text-color, #333333);
 }
 
-footer .footer > div {
-  max-width: 100%;
+footer .footer>div {
+  max-width: 1400px;
   margin: 0 auto;
   padding: 40px 24px;
-  border-bottom: 1px solid #e0e0e0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px;
+@media (min-width: 900px) {
+  footer .footer>div {
+    padding: 60px 40px;
   }
 }
 
-
-
-footer .footer > div:last-child {
-  border-bottom: none;
-}
-
 /* --- Row 1: Links Section --- */
-.footer-links-section .columns {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+.footer-links-section {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 40px;
 }
 
-.footer-column h3 {
-  font-size: 14px;
-  font-weight: bold;
+.footer-links-section .columns>div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  padding-top: 48px;
+  /* Space for the logo */
+}
+
+.footer-column:first-child {
+  position: relative;
+}
+
+.footer-column p br {
+  display: none;
+  /* Block elements handle spacing, remove br gaps */
+}
+
+.footer-column img,
+.footer-column span.icon {
+  position: absolute;
+  top: -48px;
+  left: 0;
+  max-height: 28px;
+  max-width: 100%;
+  width: auto;
+  margin-bottom: 0;
+  display: flex;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.footer-column span.icon svg {
+  max-height: 28px;
+  width: auto;
+}
+
+@media (max-width: 1100px) {
+  .footer-links-section .columns>div {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-links-section .columns>div {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.footer-column p {
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.footer-column p strong {
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+  color: #000;
+  display: block;
+  margin-bottom: 12px;
+  margin-top: 24px;
+}
+
+.footer-column p strong:first-of-type {
+  margin-top: 0;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #666;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 4px 0;
+}
+
+.footer-column a:hover {
   color: #000;
 }
 
-.footer-column ul {
-  list-style: none;
-  padding: 0;
+/* --- Contact Box --- */
+.footer-contact-box {
+  background: transparent;
+}
+
+.footer-contact-box>p:first-child strong {
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.footer-contact-box>p:nth-child(2) {
+  color: #666;
+  font-size: 12px;
+  margin-bottom: 24px;
+}
+
+/* Format the contact box links */
+.footer-contact-box p:has(a) {
   margin: 0;
 }
 
-.footer-column ul li {
-  margin-bottom: 12px;
-}
-
-.footer-column ul li a {
+.footer-contact-box a {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border: 1px solid #e0e0e0;
+  border-bottom: none;
+  background-color: #fff;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  position: relative;
   text-decoration: none;
-  color: #555;
-  transition: color 0.3s ease;
+  color: #666;
 }
 
-.footer-column ul li a:hover {
-  color: #ff6a00; /* Wooden Street primary color accent */
+.footer-contact-box p:has(a):last-child a {
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.footer-column img {
-  max-height: 30px;
-  margin-right: 10px;
+.footer-contact-box a:hover {
+  background-color: #fafafa;
 }
 
-/* --- Row 2: Badges Section --- */
-.footer-badges-section .columns {
+/* Add the > chevron using a pseudo element */
+.footer-contact-box a::after {
+  content: '';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid #666;
+  border-right: 1px solid #666;
+  transition: transform 0.2s ease;
+}
+
+.footer-contact-box a:hover::after {
+  transform: translateY(-50%) rotate(45deg) scale(1.1);
+  border-color: #000;
+}
+
+.footer-contact-box a img {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  opacity: 0.7;
+}
+
+.footer-contact-box a strong {
+  display: block;
+  font-size: 12px;
+  margin: 0 0 2px 0;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #000;
+}
+
+/* --- Row 2: Legal Section --- */
+.footer-legal-section {
+  background-color: transparent;
+  padding-top: 40px;
+}
+
+.footer-legal-section .default-content-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
+  font-size: 11px;
+  color: #666;
 }
 
-.footer-badges-section p {
+.footer-legal-section p {
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.footer-badges-section img {
-  max-height: 40px;
+.footer-legal-section p:last-child {
+  gap: 16px;
+  /* Social icons gap */
 }
 
-/* --- Row 3: Legal Section --- */
-.footer-legal-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  color: #666;
-}
-
-.footer-legal-section .default-content-wrapper {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
-
-.footer-legal-section img {
-  max-height: 40px;
-}
-
-.footer-legal-section ul {
-  display: flex;
-  gap: 15px;
-  list-style: none;
-  padding: 0;
-  margin: 0 0 10px 0;
-}
-
-.footer-legal-section ul li a {
+.footer-legal-section a {
   color: #666;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.footer-legal-section ul li a:hover {
-  text-decoration: underline;
+.footer-legal-section a:hover {
+  color: #000;
 }
 
-/* Responsive Design */
+/* Social icons */
+.footer-legal-section p:last-child img {
+  height: 16px;
+  width: auto;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.footer-legal-section p:last-child a:hover img {
+  opacity: 1;
+}
+
 @media (max-width: 900px) {
-  .footer-links-section .columns {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .footer-badges-section .columns {
+  .footer-legal-section .default-content-wrapper {
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
   }
-  .footer-legal-section {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-}
 
-@media (max-width: 600px) {
-  .footer-links-section .columns {
-    grid-template-columns: 1fr;
+  .footer-legal-section p {
+    justify-content: center;
   }
 }
