@@ -62,7 +62,7 @@
 }
 
 /* Target the first element (title) in the body */
-.cards .cards-card-body>*:first-child {
+.cards>.cards-slider-wrapper>ul>li .cards-card-body>*:first-child {
   font-size: 18px;
   font-weight: 500;
   margin: 0 0 8px;
@@ -184,7 +184,7 @@
   width: 100%;
 }
 
-.cards.category .cards-card-body>*:first-child {
+.cards.category>.cards-slider-wrapper>ul>li .cards-card-body>*:first-child {
   font-size: 13px;
   font-weight: 400;
   margin: 0;
@@ -192,6 +192,6 @@
 }
 
 /* Remove the arrow indicator from the title for category cards */
-.cards.category .cards-card-body>*:first-child::after {
+.cards.category>.cards-slider-wrapper>ul>li .cards-card-body>*:first-child::after {
   content: none;
 }

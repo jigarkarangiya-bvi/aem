@@ -238,7 +238,7 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   /* Sleek chevron for items with submenus */
-  header nav .nav-sections .nav-drop > a {
+  header nav .nav-sections .default-content-wrapper > ul > li.nav-drop > a {
     padding-right: 14px;
   }
 
@@ -303,12 +303,12 @@ header nav .nav-sections ul > li > ul > li {
     padding: 8px 0;
   }
   
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > a {
+  header nav .nav-sections .default-content-wrapper > ul > li.nav-drop > ul > li > a {
     color: var(--dark-color);
     transition: color 0.2s ease;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li > a:hover {
+  header nav .nav-sections .default-content-wrapper > ul > li.nav-drop > ul > li > a:hover {
     color: var(--text-color);
   }
 }

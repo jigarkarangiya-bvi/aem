@@ -136,13 +136,13 @@ footer .footer>div {
   /* Social icons gap */
 }
 
-.footer-legal-section p a {
+.footer-legal-section .default-content-wrapper a {
   color: #666;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.footer-legal-section p a:hover {
+.footer-legal-section .default-content-wrapper a:hover {
   color: #000;
 }
 
